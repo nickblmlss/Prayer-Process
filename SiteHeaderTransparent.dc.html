@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,55 +19,63 @@
 <script src="_ds/blameless-ministries-design-system-0fb65eda-218a-45e4-9df5-6170da0512bf/_ds_bundle.js"></script>
 </helmet>
 
-<header style="position: absolute; top: 0; left: 0; right: 0; z-index: 20; background: rgba(30,27,22,.22); border-bottom: 1px solid rgba(247,243,237,.18); font-family: var(--font-body);">
+<a href="#content-start" style="position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; white-space: nowrap; font-family: var(--font-body); font-size: 13px; letter-spacing: 0.05em; z-index: 1000; background: #1E1B16; color: #F7F3ED; padding: 12px 20px; border-radius: 4px;" onFocus="this.style.left='8px'; this.style.top='8px'; this.style.width='auto'; this.style.height='auto'; this.style.overflow='visible';" onBlur="this.style.left='-9999px'; this.style.top='auto'; this.style.width='1px'; this.style.height='1px'; this.style.overflow='hidden';">Skip to main content</a>
+<header style="position: absolute; top: 0; left: 0; right: 0; z-index: 20; background: rgba(30,27,22,.22); font-family: var(--font-body);">
   <div style="max-width: 1240px; margin: 0 auto; padding: 16px 32px; display: flex; align-items: center; justify-content: space-between; gap: 40px;">
-    <a href="https://blameless.church/" style="display: flex; align-items: center;"><img src="assets/logo-white-web.png" alt="BLMLSS Church" style="height: 38px; width: 68px; display: block"></a>
-    <nav data-nav="desktop" style="display: flex; gap: 28px; align-items: center; align-self: stretch;">
-      <a href="https://blameless.church/" style="font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(247,243,237,.75); border-bottom: none;" style-hover="color: #F7F3ED;">Home</a>
+    <a href="https://blameless.church/" style="display: flex; align-items: center;"><img src="assets/logo-white-web.png" alt="Blameless Church" style="height: 57px; width: 102px; display: block"></a>
+    <nav data-nav="desktop" style="display: flex; gap: 42px; align-items: center; align-self: stretch;">
+      <a href="https://blameless.church/" style="font-size: 16.5px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(247,243,237,.75); border-bottom: none;" style-hover="color: #F7F3ED;">Home</a>
 
       <div onMouseEnter="{{ openMinistries }}" onMouseLeave="{{ closeMenu }}" style="position: relative; display: flex; align-items: center; align-self: stretch;">
-        <button type="button" onClick="{{ toggleMinistries }}" style="background: none; border: none; padding: 0; cursor: pointer; font-family: var(--font-body); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: {{ triggerMinistriesColor }}; transition: color 200ms; padding-bottom: 3px;" style-hover="color: #F7F3ED;">Ministries</button>
+        <button type="button" onClick="{{ toggleMinistries }}" aria-haspopup="true" aria-expanded="{{ ministriesExpanded }}" style="background: none; border: none; padding: 4px 0 0; cursor: pointer; font-family: var(--font-body); font-size: 16.5px; letter-spacing: 0.2em; text-transform: uppercase; color: {{ triggerMinistriesColor }}; transition: color 200ms; border-bottom: 1px solid {{ triggerMinistriesRule }}; padding-bottom: 3px;" style-hover="color: #F7F3ED;">Ministries</button>
         <div style="position: absolute; top: 100%; left: 0; padding-top: 17px; pointer-events: {{ panelMinistriesPointer }};">
-          <div style="width: 168px; background: rgba(30,27,22,.34); border: 1px solid rgba(247,243,237,.22); border-top: none; border-radius: 0 0 2px 2px; padding: 6px 0; display: flex; flex-direction: column; position: relative; transition: opacity 260ms cubic-bezier(.16,.84,.44,1), transform 260ms cubic-bezier(.16,.84,.44,1); opacity: {{ panelMinistriesOpacity }}; transform: {{ panelMinistriesTransform }}; visibility: {{ panelMinistriesVisibility }}; pointer-events: {{ panelMinistriesPointer }};">
-            <a href="https://blameless.church/prayer" style="padding: 14px 22px; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #F7F3ED; border-bottom: none; transition: background 160ms;" style-hover="background: rgba(247,243,237,.14);">Prayer</a>
+          <div style="width: 252px; background: rgba(30,27,22,.34); border: 1px solid rgba(247,243,237,.22); border-top: none; border-radius: 0 0 2px 2px; padding: 6px 0; display: flex; flex-direction: column; position: relative; transition: opacity 260ms cubic-bezier(.16,.84,.44,1), transform 260ms cubic-bezier(.16,.84,.44,1); opacity: {{ panelMinistriesOpacity }}; transform: {{ panelMinistriesTransform }}; visibility: {{ panelMinistriesVisibility }}; pointer-events: {{ panelMinistriesPointer }};">
+            <a href="https://blameless.church/prayer" style="padding: 14px 22px; font-size: 16.5px; letter-spacing: 0.2em; text-transform: uppercase; color: #F7F3ED; border-bottom: none; transition: background 160ms;" style-hover="background: rgba(247,243,237,.14);">Prayer</a>
+          </div>
+        </div>
+      </div>
+
+      <div onMouseEnter="{{ openChurch }}" onMouseLeave="{{ closeMenu }}" style="position: relative; display: flex; align-items: center; align-self: stretch;">
+        <button type="button" onClick="{{ toggleChurch }}" aria-haspopup="true" aria-expanded="{{ churchExpanded }}" style="background: none; border: none; padding: 4px 0 0; cursor: pointer; font-family: var(--font-body); font-size: 16.5px; letter-spacing: 0.2em; text-transform: uppercase; color: {{ triggerChurchColor }}; transition: color 200ms; border-bottom: 1px solid {{ triggerChurchRule }}; padding-bottom: 3px;" style-hover="color: #F7F3ED;">Church</button>
+        <div style="position: absolute; top: 100%; left: 0; padding-top: 17px; pointer-events: {{ panelChurchPointer }};">
+          <div style="width: 300px; background: rgba(30,27,22,.34); border: 1px solid rgba(247,243,237,.22); border-top: none; border-radius: 0 0 2px 2px; padding: 6px 0; display: flex; flex-direction: column; position: relative; transition: opacity 260ms cubic-bezier(.16,.84,.44,1), transform 260ms cubic-bezier(.16,.84,.44,1); opacity: {{ panelChurchOpacity }}; transform: {{ panelChurchTransform }}; visibility: {{ panelChurchVisibility }}; pointer-events: {{ panelChurchPointer }};">
+            <a href="https://blameless.church/house-church" style="padding: 14px 22px; font-size: 16.5px; letter-spacing: 0.2em; text-transform: uppercase; color: #F7F3ED; border-bottom: none; transition: background 160ms;" style-hover="background: rgba(247,243,237,.14);">House church</a>
+            <a href="https://blameless.church/gatherings" style="padding: 14px 22px; font-size: 16.5px; letter-spacing: 0.2em; text-transform: uppercase; color: #F7F3ED; border-bottom: none; transition: background 160ms;" style-hover="background: rgba(247,243,237,.14);">Gatherings</a>
           </div>
         </div>
       </div>
 
       <div onMouseEnter="{{ openAbout }}" onMouseLeave="{{ closeMenu }}" style="position: relative; display: flex; align-items: center; align-self: stretch;">
-        <button type="button" onClick="{{ toggleAbout }}" style="background: none; border: none; padding: 0; cursor: pointer; font-family: var(--font-body); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: {{ triggerAboutColor }}; transition: color 200ms; padding-bottom: 3px;" style-hover="color: #F7F3ED;">About</button>
+        <button type="button" onClick="{{ toggleAbout }}" aria-haspopup="true" aria-expanded="{{ aboutExpanded }}" style="background: none; border: none; padding: 4px 0 0; cursor: pointer; font-family: var(--font-body); font-size: 16.5px; letter-spacing: 0.2em; text-transform: uppercase; color: {{ triggerAboutColor }}; transition: color 200ms; border-bottom: 1px solid {{ triggerAboutRule }}; padding-bottom: 3px;" style-hover="color: #F7F3ED;">About</button>
         <div style="position: absolute; top: 100%; right: 0; padding-top: 17px; pointer-events: {{ panelAboutPointer }};">
-          <div style="width: 216px; background: rgba(30,27,22,.34); border: 1px solid rgba(247,243,237,.22); border-top: none; border-radius: 0 0 2px 2px; padding: 6px 0; display: flex; flex-direction: column; position: relative; transition: opacity 260ms cubic-bezier(.16,.84,.44,1), transform 260ms cubic-bezier(.16,.84,.44,1); opacity: {{ panelAboutOpacity }}; transform: {{ panelAboutTransform }}; visibility: {{ panelAboutVisibility }}; pointer-events: {{ panelAboutPointer }};">
-            <a href="https://blameless.church/house-church" style="padding: 14px 22px; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #F7F3ED; border-bottom: none; transition: background 160ms;" style-hover="background: rgba(247,243,237,.14);">House church</a>
-            <a href="https://blameless.church/sermons" style="padding: 14px 22px; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #F7F3ED; border-bottom: none; transition: background 160ms;" style-hover="background: rgba(247,243,237,.14);">Sermon series</a>
-            <a href="https://blameless.church/team" style="padding: 14px 22px; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #F7F3ED; border-bottom: none; transition: background 160ms;" style-hover="background: rgba(247,243,237,.14);">Meet our team</a>
-            <a href="https://blameless.church/board" style="padding: 14px 22px; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #F7F3ED; border-bottom: none; transition: background 160ms;" style-hover="background: rgba(247,243,237,.14);">Our board</a>
-            <a href="https://blameless.church/beliefs" style="padding: 14px 22px; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #F7F3ED; border-bottom: none; transition: background 160ms;" style-hover="background: rgba(247,243,237,.14);">Statement of beliefs</a>
+          <div style="width: 324px; background: rgba(30,27,22,.34); border: 1px solid rgba(247,243,237,.22); border-top: none; border-radius: 0 0 2px 2px; padding: 6px 0; display: flex; flex-direction: column; position: relative; transition: opacity 260ms cubic-bezier(.16,.84,.44,1), transform 260ms cubic-bezier(.16,.84,.44,1); opacity: {{ panelAboutOpacity }}; transform: {{ panelAboutTransform }}; visibility: {{ panelAboutVisibility }}; pointer-events: {{ panelAboutPointer }};">
+            <a href="https://blameless.church/team" style="padding: 14px 22px; font-size: 16.5px; letter-spacing: 0.2em; text-transform: uppercase; color: #F7F3ED; border-bottom: none; transition: background 160ms;" style-hover="background: rgba(247,243,237,.14);">Meet our team</a>
+            <a href="https://blameless.church/board" style="padding: 14px 22px; font-size: 16.5px; letter-spacing: 0.2em; text-transform: uppercase; color: #F7F3ED; border-bottom: none; transition: background 160ms;" style-hover="background: rgba(247,243,237,.14);">Our board</a>
           </div>
         </div>
       </div>
-      <a href="https://blameless.church/giving" style="font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #F7F3ED; border: 1px solid rgba(247,243,237,.45); padding: 9px 18px;" style-hover="background: rgba(247,243,237,.14);">Give</a>
+      <a href="https://blameless.church/giving" style="font-size: 16.5px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(247,243,237,.75); border-bottom: none;" style-hover="color: #F7F3ED;">Give</a>
     </nav>
-      <button type="button" data-nav="burger" onClick="{{ toggleMobile }}" aria-label="Menu" style="display: none; flex-direction: column; gap: 5px; align-items: center; justify-content: center; width: 44px; height: 44px; margin-right: -10px; background: none; border: none; cursor: pointer; padding: 0;">
+      <button type="button" data-nav="burger" onClick="{{ toggleMobile }}" aria-label="Menu" aria-expanded="{{ mobileExpanded }}" aria-controls="mobile-nav-panel" style="display: none; flex-direction: column; gap: 5px; align-items: center; justify-content: center; width: 44px; height: 44px; margin-right: -10px; background: none; border: none; cursor: pointer; padding: 0;">
         <span style="display: block; width: 22px; height: 1px; background: #F7F3ED;"></span>
         <span style="display: block; width: 22px; height: 1px; background: #F7F3ED;"></span>
         <span style="display: block; width: 22px; height: 1px; background: #F7F3ED;"></span>
       </button>
   </div>
-    <div data-nav="panel" style="display: {{ mobilePanelDisplay }}; background: rgba(30,27,22,.92); border-top: 1px solid rgba(247,243,237,.18);">
+    <div data-nav="panel" id="mobile-nav-panel" style="display: {{ mobilePanelDisplay }}; background: rgba(30,27,22,.92); border-top: 1px solid rgba(247,243,237,.18);">
       <nav style="display: flex; flex-direction: column; padding: 8px 20px 24px;">
-        <a href="https://blameless.church/" style="padding: 16px 0; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: #F7F3ED; border-bottom: 1px solid rgba(247,243,237,.14);" style-hover="opacity: .7;">Home</a>
-        <div style="padding: 26px 0 10px; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(247,243,237,.45);">Ministries</div>
-        <a href="https://blameless.church/prayer" style="padding: 15px 0 15px 18px; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: #F7F3ED; border-bottom: 1px solid rgba(247,243,237,.14);" style-hover="opacity: .7;">Prayer</a>
-        <div style="padding: 26px 0 10px; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(247,243,237,.45);">About</div>
-        <a href="https://blameless.church/house-church" style="padding: 15px 0 15px 18px; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: #F7F3ED; border-bottom: 1px solid rgba(247,243,237,.14);" style-hover="opacity: .7;">House church</a>
-        <a href="https://blameless.church/sermons" style="padding: 15px 0 15px 18px; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: #F7F3ED; border-bottom: 1px solid rgba(247,243,237,.14);" style-hover="opacity: .7;">Sermon series</a>
-        <a href="https://blameless.church/team" style="padding: 15px 0 15px 18px; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: #F7F3ED; border-bottom: 1px solid rgba(247,243,237,.14);" style-hover="opacity: .7;">Meet our team</a>
-        <a href="https://blameless.church/board" style="padding: 15px 0 15px 18px; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: #F7F3ED; border-bottom: 1px solid rgba(247,243,237,.14);" style-hover="opacity: .7;">Our board</a>
-        <a href="https://blameless.church/beliefs" style="padding: 15px 0 15px 18px; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: #F7F3ED; border-bottom: 1px solid rgba(247,243,237,.14);" style-hover="opacity: .7;">Statement of beliefs</a>
-        <div style="padding: 26px 0 10px; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(247,243,237,.45);">Connect</div>
-        <a href="https://blameless.church/contact" style="padding: 15px 0 15px 18px; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: #F7F3ED; border-bottom: 1px solid rgba(247,243,237,.14);" style-hover="opacity: .7;">Connect with us</a>
-        <a href="https://blameless.church/giving" style="padding: 15px 0 15px 18px; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: #F7F3ED; border-bottom: 1px solid rgba(247,243,237,.14);" style-hover="opacity: .7;">Give</a>
+        <a href="https://blameless.church/" style="padding: 16px 0; font-size: 18px; letter-spacing: 0.2em; text-transform: uppercase; color: #F7F3ED; border-bottom: 1px solid rgba(247,243,237,.14);" style-hover="opacity: .7;">Home</a>
+        <div style="padding: 26px 0 10px; font-size: 16.5px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(247,243,237,.68);">Ministries</div>
+        <a href="https://blameless.church/prayer" style="padding: 15px 0 15px 18px; font-size: 18px; letter-spacing: 0.2em; text-transform: uppercase; color: #F7F3ED; border-bottom: 1px solid rgba(247,243,237,.14);" style-hover="opacity: .7;">Prayer</a>
+        <div style="padding: 26px 0 10px; font-size: 16.5px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(247,243,237,.68);">Church</div>
+        <a href="https://blameless.church/house-church" style="padding: 15px 0 15px 18px; font-size: 18px; letter-spacing: 0.2em; text-transform: uppercase; color: #F7F3ED; border-bottom: 1px solid rgba(247,243,237,.14);" style-hover="opacity: .7;">House church</a>
+        <a href="https://blameless.church/gatherings" style="padding: 15px 0 15px 18px; font-size: 18px; letter-spacing: 0.2em; text-transform: uppercase; color: #F7F3ED; border-bottom: 1px solid rgba(247,243,237,.14);" style-hover="opacity: .7;">Gatherings</a>
+        <div style="padding: 26px 0 10px; font-size: 16.5px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(247,243,237,.68);">About</div>
+        <a href="https://blameless.church/team" style="padding: 15px 0 15px 18px; font-size: 18px; letter-spacing: 0.2em; text-transform: uppercase; color: #F7F3ED; border-bottom: 1px solid rgba(247,243,237,.14);" style-hover="opacity: .7;">Meet our team</a>
+        <a href="https://blameless.church/board" style="padding: 15px 0 15px 18px; font-size: 18px; letter-spacing: 0.2em; text-transform: uppercase; color: #F7F3ED; border-bottom: 1px solid rgba(247,243,237,.14);" style-hover="opacity: .7;">Our board</a>
+        <div style="padding: 26px 0 10px; font-size: 16.5px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(247,243,237,.68);">Connect</div>
+        <a href="https://blameless.church/contact" style="padding: 15px 0 15px 18px; font-size: 18px; letter-spacing: 0.2em; text-transform: uppercase; color: #F7F3ED; border-bottom: 1px solid rgba(247,243,237,.14);" style-hover="opacity: .7;">Connect with us</a>
+        <a href="https://blameless.church/giving" style="padding: 15px 0 15px 18px; font-size: 18px; letter-spacing: 0.2em; text-transform: uppercase; color: #F7F3ED; border-bottom: 1px solid rgba(247,243,237,.14);" style-hover="opacity: .7;">Give</a>
       </nav>
     </div>
 </header>
@@ -85,17 +93,24 @@ class Component extends DCLogic {
       ['panel' + key + 'Visibility']: m === key ? 'visible' : 'hidden',
       ['panel' + key + 'Pointer']: m === key ? 'auto' : 'none'
     });
-    return Object.assign({}, on('Ministries'), on('About'), {
+    return Object.assign({}, on('Ministries'), on('Church'), on('About'), {
       openMinistries: () => this.setState({ menu: 'Ministries' }),
+      openChurch: () => this.setState({ menu: 'Church' }),
       openAbout: () => this.setState({ menu: 'About' }),
       closeMenu: () => this.setState({ menu: null }),
       mobilePanelDisplay: this.state.mobileOpen ? 'block' : 'none',
+      mobileExpanded: this.state.mobileOpen ? 'true' : 'false',
+      ministriesExpanded: m === 'Ministries' ? 'true' : 'false',
+      churchExpanded: m === 'Church' ? 'true' : 'false',
+      aboutExpanded: m === 'About' ? 'true' : 'false',
       toggleMobile: () => this.setState(s => ({ mobileOpen: !s.mobileOpen })),
       toggleMinistries: () => this.setState(s => ({ menu: s.menu === 'Ministries' ? null : 'Ministries' })),
+      toggleChurch: () => this.setState(s => ({ menu: s.menu === 'Church' ? null : 'Church' })),
       toggleAbout: () => this.setState(s => ({ menu: s.menu === 'About' ? null : 'About' }))
     });
   }
 }
 </script>
+<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#1E1B16"/><text x="50" y="62" text-anchor="middle" font-family="Georgia, serif" font-size="34" fill="#F7F3ED">B</text></svg></template>
 </body>
 </html>

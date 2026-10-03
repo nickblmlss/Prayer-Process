@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -25,39 +25,113 @@
 </style>
 </helmet>
 
-<footer class="blmlss-foot" style="background: #1E1B16; color: #F7F3ED; font-family: var(--font-body); padding: 80px 32px 40px;">
-  <div style="max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: 1.35fr 1fr; gap: 72px; align-items: start;">
+<footer class="blmlss-foot" data-blmlss-footer-nav="true" style="background: #1E1B16; color: #F7F3ED; font-family: var(--font-body); padding: 80px 32px 40px;">
+  <div style="max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.85fr); gap: 64px; align-items: start;">
     <div style="display: flex; flex-direction: column; gap: 28px; max-width: 44ch; align-items: flex-start;">
-      <img src="assets/logo-white-web.png" alt="BLMLSS Church" style="height: 96px; width: auto; display: block; object-fit: contain;">
+      <img src="assets/logo-white-web.png" alt="Blameless Church" style="height: 96px; width: auto; display: block; object-fit: contain;">
       <p style="font-family: 'Restora', var(--font-display), Georgia, serif; font-weight: 300; font-size: 16px; line-height: 1.34; margin: 0; color: rgba(247,243,237,.9);">Our vision is to prepare the Bride of Christ for Jesus’ return.</p>
       <a href="mailto:prayer@blmlss.com" style="font-size: 12px; letter-spacing: .16em; text-transform: uppercase;">INFO@BLMLSS.COM</a>
     </div>
-    <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px;">
+    <div class="blmlss-footer-nav-grid" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 32px; align-items: start;">
       <nav style="display: flex; flex-direction: column; gap: 0;">
-        <div style="font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: rgba(247,243,237,.4); padding-bottom: 16px; border-bottom: 1px solid rgba(247,243,237,.18);">Ministries</div>
+        <div style="font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: rgba(247,243,237,.68); padding-bottom: 16px; border-bottom: 1px solid rgba(247,243,237,.18);">Resources</div>
+        
+        
+        <a href="https://prayerprocess.blmlss.com/Living%20Free%20Workbook.dc.html" onClick="{{ openWorkbook }}" style="font-size: 16px; line-height: 1.4; padding: 16px 0; border-bottom: 1px solid rgba(247,243,237,.12);">Living Free Workbook</a>
+        <a href="https://blameless.church/prayer-team" onClick="{{ openPrayerTeam }}" style="font-size: 16px; line-height: 1.4; padding: 16px 0; border-bottom: 1px solid rgba(247,243,237,.12);">Prayer Team</a>
+      </nav>
+      <nav style="display: flex; flex-direction: column; gap: 0;">
+        
+        <div style="font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: rgba(247,243,237,.68); padding-bottom: 16px; border-bottom: 1px solid rgba(247,243,237,.18);">Church</div><a href="https://blameless.church/house-church" style="font-size: 16px; line-height: 1.4; padding: 16px 0; border-bottom: 1px solid rgba(247,243,237,.12);">House Church</a>
+        <a href="https://blameless.church/gatherings" style="font-size: 16px; line-height: 1.4; padding: 16px 0; border-bottom: 1px solid rgba(247,243,237,.12);">Gatherings</a>
+        
+        
+        <a href="https://blameless.church/giving" style="font-size: 16px; line-height: 1.4; padding: 16px 0; border-bottom: 1px solid rgba(247,243,237,.12);">Giving</a>
+      </nav>
+      <nav style="display: flex; flex-direction: column; gap: 0;">
+        <div style="font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: rgba(247,243,237,.68); padding-bottom: 16px; border-bottom: 1px solid rgba(247,243,237,.18);">Ministries</div>
         <a href="https://blameless.church/prayer" style="font-size: 16px; line-height: 1.4; padding: 16px 0; border-bottom: 1px solid rgba(247,243,237,.12);">Blameless Prayer</a>
+        
       </nav>
       <nav style="display: flex; flex-direction: column; gap: 0;">
-        <div style="font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: rgba(247,243,237,.4); padding-bottom: 16px; border-bottom: 1px solid rgba(247,243,237,.18);">Resources</div>
-        <a href="https://blameless.church/sermons" style="font-size: 16px; line-height: 1.4; padding: 16px 0; border-bottom: 1px solid rgba(247,243,237,.12);">Sermon Series</a>
-        <a href="https://blameless.church/beliefs" style="font-size: 16px; line-height: 1.4; padding: 16px 0; border-bottom: 1px solid rgba(247,243,237,.12);">Statement of Beliefs</a>
-        <a href="https://blameless.church/giving" style="font-size: 16px; line-height: 1.4; padding: 16px 0; border-bottom: 1px solid rgba(247,243,237,.12);">How to Give</a>
-        <a href="https://prayerprocess.blmlss.com/living-free.html" style="font-size: 16px; line-height: 1.4; padding: 16px 0; border-bottom: 1px solid rgba(247,243,237,.12);">Living Free Workbook</a>
-      </nav>
-      <nav style="display: flex; flex-direction: column; gap: 0;">
-        <div style="font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: rgba(247,243,237,.4); padding-bottom: 16px; border-bottom: 1px solid rgba(247,243,237,.18);">About</div>
-        <a href="https://blameless.church/team" style="font-size: 16px; line-height: 1.4; padding: 16px 0; border-bottom: 1px solid rgba(247,243,237,.12);">Meet our Team</a>
-        <a href="https://blameless.church/board" style="font-size: 16px; line-height: 1.4; padding: 16px 0; border-bottom: 1px solid rgba(247,243,237,.12);">Meet our Board</a>
-        <a href="https://blameless.church/contact" style="font-size: 16px; line-height: 1.4; padding: 16px 0; border-bottom: 1px solid rgba(247,243,237,.12);">Connect with Us</a>
+        <div style="font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: rgba(247,243,237,.68); padding-bottom: 16px; border-bottom: 1px solid rgba(247,243,237,.18);">About</div>
+        <a href="https://blameless.church/contact" style="font-size: 16px; line-height: 1.4; padding: 16px 0; border-bottom: 1px solid rgba(247,243,237,.12);">Contact Us</a><a href="https://blameless.church/team" style="font-size: 16px; line-height: 1.4; padding: 16px 0; border-bottom: 1px solid rgba(247,243,237,.12);">Meet our Team</a><a href="https://blameless.church/board" style="font-size: 16px; line-height: 1.4; padding: 16px 0; border-bottom: 1px solid rgba(247,243,237,.12);">Meet our Board</a><a href="https://blameless.church/beliefs" style="font-size: 16px; line-height: 1.4; padding: 16px 0; border-bottom: 1px solid rgba(247,243,237,.12);">Statement of Beliefs</a>
       </nav>
     </div>
   </div>
   <div style="max-width: 1240px; margin: 64px auto 0; padding-top: 28px; border-top: 1px solid rgba(247,243,237,.18); display: flex; justify-content: space-between; align-items: center; gap: 32px; flex-wrap: wrap;">
-    <div style="font-size: 12px; line-height: 1.6; color: rgba(247,243,237,.45); max-width: 60ch;">BLAMELESS MINISTRIES INC. is a nonprofit ministry that operates entirely through donations. <a href="https://blameless.church/giving" style="text-decoration: underline; text-underline-offset: 3px;">Support the ministry</a>.</div>
-    <span style="font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: rgba(247,243,237,.45);">© Blameless Ministries Inc.</span>
+    <div style="font-size: 12px; line-height: 1.6; color: rgba(247,243,237,.68); max-width: 60ch;">BLAMELESS MINISTRIES INC. is a nonprofit ministry that operates entirely through donations. <a href="https://blameless.church/giving" style="text-decoration: underline; text-underline-offset: 3px;">Support the ministry</a>.</div>
+    <span style="font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: rgba(247,243,237,.68);">© Blameless Ministries Inc.</span>
   </div>
+  <sc-if value="{{ gate }}" hint-placeholder-val="{{ false }}">
+    <div style="position: fixed; inset: 0; z-index: 200; background: rgba(30,27,22,.72); display: flex; align-items: center; justify-content: center; padding: 24px;">
+      <div style="background: #F7F3ED; color: #1E1B16; width: 100%; max-width: 420px; padding: 40px; display: flex; flex-direction: column; gap: 18px;">
+        <span style="font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: rgba(30,27,22,.68);">Passcode required</span>
+        <div style="font-family: 'Restora', var(--font-display), Georgia, serif; font-weight: 400; font-size: 30px; line-height: 1.15;">{{ gateLabel }}</div>
+        <p style="margin: 0; font-size: 15px; line-height: 1.6; color: rgba(30,27,22,.7);">Enter the passcode given to you by our team.</p>
+        <input type="password" value="{{ entry }}" onChange="{{ onEntry }}" onKeyDown="{{ onKey }}" autoFocus="{{ true }}" placeholder="Passcode" style="width: 100%; box-sizing: border-box; padding: 14px 16px; font-family: var(--font-body); font-size: 16px; color: #1E1B16; background: #FFFFFF; border: 1px solid rgba(30,27,22,.25); border-radius: 4px;">
+        <sc-if value="{{ error }}" hint-placeholder-val="{{ false }}">
+          <span style="font-size: 13px; color: #9B3D3D;">That passcode isn’t right. Try again.</span>
+        </sc-if>
+        <div style="display: flex; gap: 12px; margin-top: 6px;">
+          <button onClick="{{ submit }}" style="flex: 1; padding: 14px 18px; font-family: var(--font-body); font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: #F7F3ED; background: #1E1B16; border: none; border-radius: 4px; cursor: pointer;" style-hover="background: #332E26;">Unlock</button>
+          <button onClick="{{ close }}" style="padding: 14px 18px; font-family: var(--font-body); font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: #1E1B16; background: transparent; border: 1px solid rgba(30,27,22,.25); border-radius: 4px; cursor: pointer;" style-hover="background: rgba(30,27,22,.06);">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </sc-if>
 </footer>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1240,&quot;height&quot;:560}}"></script>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1240,&quot;height&quot;:560}}">class Component extends DCLogic {
+  state = { gate: null, entry: '', error: false };
+
+  gates = {
+    'prayer-process': { label: 'Prayer Process', code: 'fireofgod', url: 'https://prayerprocess.blmlss.com/' },
+    'living-free': { label: 'Living Free Workbook', code: 'wordofgod', url: 'https://prayerprocess.blmlss.com/Living%20Free%20Workbook.dc.html' },
+    'prayer-team': { label: 'Prayer Team', code: 'bodysoulspirit', url: 'https://blameless.church/prayer-team' }
+  };
+
+  opener(key) {
+    return (e) => {
+      e.preventDefault();
+      const g = this.gates[key];
+      let unlocked = false;
+      try { unlocked = sessionStorage.getItem('blmlss-gate-' + key) === g.code; } catch (err) {}
+      if (unlocked) { window.open(g.url, '_blank', 'noopener'); return; }
+      this.setState({ gate: key, entry: '', error: false });
+    };
+  }
+
+  submit = (e) => {
+    if (e) e.preventDefault();
+    const key = this.state.gate;
+    if (!key) return;
+    const g = this.gates[key];
+    if (this.state.entry.trim().toLowerCase() === g.code) {
+      try { sessionStorage.setItem('blmlss-gate-' + key, g.code); } catch (err) {}
+      this.setState({ gate: null, entry: '', error: false });
+      window.open(g.url, '_blank', 'noopener');
+    } else {
+      this.setState({ error: true });
+    }
+  };
+
+  renderVals() {
+    const key = this.state.gate;
+    return {
+      gate: !!key,
+      gateLabel: key ? this.gates[key].label : '',
+      entry: this.state.entry,
+      error: this.state.error,
+      onEntry: (e) => this.setState({ entry: e.target.value, error: false }),
+      onKey: (e) => { if (e.key === 'Enter') this.submit(e); },
+      submit: this.submit,
+      close: () => this.setState({ gate: null, entry: '', error: false }),
+      openPrayerProcess: this.opener('prayer-process'),
+      openWorkbook: this.opener('living-free'),
+      openPrayerTeam: this.opener('prayer-team')
+    };
+  }
+}</script>
 </body>
 </html>

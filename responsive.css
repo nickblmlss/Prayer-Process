@@ -146,3 +146,23 @@ img, svg, video { max-width: 100%; }
 @media (min-width: 861px) {
   [data-nav="panel"] { display: none !important; }
 }
+
+/* Site footer (church website version): stack the logo above the link
+   columns, then reflow the four link columns to two, then one. */
+@media (max-width: 900px) {
+  footer.blmlss-foot > div:first-child {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 48px !important;
+  }
+}
+@media (max-width: 700px) {
+  footer.blmlss-foot > div:first-child > div.blmlss-footer-nav-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 36px 24px !important;
+  }
+}
+@media (max-width: 480px) {
+  footer.blmlss-foot > div:first-child > div.blmlss-footer-nav-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+}
