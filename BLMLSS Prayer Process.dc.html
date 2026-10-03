@@ -38,7 +38,7 @@
   [data-layout="band"][data-asg="rows"] .asg { grid-template-columns: minmax(0,1fr) minmax(0,2fr) !important; column-gap: 48px !important; }
   [data-layout="band"][data-asg="rows"] .asg-text { max-width: 72ch !important; }
   [data-layout="band"][data-asg="rows"] .asg-act { max-width: 640px !important; }
-  [data-layout="band"][data-asg="rows"] .intro-video { width: auto !important; margin-left: calc((100% - 48px) / 3 + 48px); }
+  [data-layout="band"][data-asg="rows"] .intro-video { width: auto !important; max-width: none !important; margin-left: calc((100% - 48px) / 3 + 48px); }
   @media (max-width: 900px) { [data-layout="band"][data-asg="rows"] .intro-video { width: 100% !important; margin-left: 0; } }
   @container (max-width: 560px) { [data-layout="band"][data-asg="rows"] .intro-video { width: 100% !important; margin-left: 0; } }
   .step-row:last-child { border-bottom: none; }
