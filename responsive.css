@@ -167,7 +167,8 @@ img, svg, video { max-width: 100%; }
   }
 }
 
-/* ---------- Header: matches the church website (blameless.church) ---------- */
+
+/* ---------- Header: copied from the church website repo (nickblmlss/church responsive.css) ---------- */
 /* Header settlement and accessible menu state.
    Transparent headers remain dark enough for their white artwork and links. */
 header.blmlss-nav-scrolled {
@@ -179,6 +180,9 @@ header[style*="background: rgba(30,27,22,.22)"].blmlss-nav-scrolled {
   position: fixed !important;
   background: rgba(30,27,22,.88) !important;
 }
+[data-nav="panel"][aria-hidden="true"] { visibility: hidden; }
+[data-nav="panel"][aria-hidden="false"] { visibility: visible; }
+
 /* ---------- Shared navigation: one calm primary path ---------- */
 /* One header size on every page: a fixed nav gap and fixed link type, so the
    bar never rescales with viewport width and pages can't drift apart. */
@@ -207,9 +211,7 @@ header.blmlss-flat-header [data-nav="desktop"] .blmlss-flat-nav-link {
   align-items: center;
   min-height: 44px;
   color: rgba(30,27,22,.68);
-  font-family: var(--font-body);
-  font-size: 16.5px;
-  font-weight: 400;
+  font-size: 13px;
   letter-spacing: .2em;
   line-height: 1;
   text-transform: uppercase;
@@ -278,9 +280,7 @@ header.blmlss-flat-header.blmlss-header-transparent.blmlss-nav-scrolled [data-na
     padding: 15px 0;
     border-bottom: 1px solid var(--ink-15);
     color: #1E1B16;
-    font-family: var(--font-body);
-    font-size: 18px;
-    font-weight: 400;
+    font-size: 12px;
     letter-spacing: .2em;
     line-height: 1.2;
     text-transform: uppercase;
@@ -306,34 +306,21 @@ header.blmlss-flat-header.blmlss-header-transparent.blmlss-nav-scrolled [data-na
   }
 }
 
-/* Header links never underline, even on pages that underline body links. */
-header.blmlss-flat-header a,
-header.blmlss-flat-header a:hover { text-decoration: none !important; }
 
-/* ---------- Header type: Inter, sized to match blameless.church ---------- */
+/* The church site sets its whole body in Inter; this site keeps Source Sans 3
+   for body copy, so the header alone is set in the church's Inter file. */
 @font-face {
   font-family: 'Inter';
-  src: url('assets/fonts/Inter-400-latin.woff2') format('woff2');
-  font-weight: 400;
   font-style: normal;
+  font-weight: 100 900;
   font-display: swap;
+  src: url('assets/fonts/Inter-normal-latin.woff2') format('woff2');
 }
 header.blmlss-flat-header,
+header.blmlss-flat-header button { font-family: 'Inter', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif !important; }
+/* The church site's body line height (1.65), so menu rows are the same height. */
+header.blmlss-flat-header,
+header.blmlss-flat-header * { line-height: 1.65; }
+/* This site underlines body links; the church site does not. */
 header.blmlss-flat-header a,
-header.blmlss-flat-header button,
-header.blmlss-flat-header div,
-header.blmlss-flat-header span {
-  font-family: 'Inter', var(--font-body) !important;
-}
-/* Desktop: top-level items and dropdown items */
-header.blmlss-flat-header [data-nav="desktop"] a,
-header.blmlss-flat-header [data-nav="desktop"] button {
-  font-size: 15px !important;
-}
-header.blmlss-flat-header [data-nav="desktop"] .blmlss-flat-nav-link--primary {
-  font-size: 13px !important;
-  padding: 0 20px !important;
-}
-/* Mobile menu */
-header.blmlss-flat-header [data-nav="panel"] a { font-size: 16px !important; }
-header.blmlss-flat-header [data-nav="panel"] nav > div { font-size: 15px !important; }
+header.blmlss-flat-header a:hover { text-decoration: none !important; }
