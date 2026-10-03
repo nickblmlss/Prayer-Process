@@ -180,3 +180,20 @@
   if (document.body) start();
   else addEventListener('DOMContentLoaded', start);
 })();
+
+/* Header scroll state, as on blameless.church: the bar gains a soft shadow
+   once the page scrolls, and the transparent header turns solid ink. */
+(function () {
+  function init() {
+    var header = document.querySelector('header.blmlss-flat-header');
+    if (!header) { setTimeout(init, 200); return; }
+    if (header.__blmlssNavMotion) return;
+    header.__blmlssNavMotion = true;
+    header.style.transition = 'background-color 240ms ease, box-shadow 240ms ease, backdrop-filter 240ms ease';
+    function update() { header.classList.toggle('blmlss-nav-scrolled', window.scrollY > 18); }
+    window.addEventListener('scroll', update, { passive: true });
+    update();
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();
