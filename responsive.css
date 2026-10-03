@@ -324,3 +324,13 @@ header.blmlss-flat-header * { line-height: 1.65; }
 /* This site underlines body links; the church site does not. */
 header.blmlss-flat-header a,
 header.blmlss-flat-header a:hover { text-decoration: none !important; }
+
+/* Prayer Process hero (praying hands under a single light): on wide screens
+   the hands sit right of the title with the light above them; on narrow
+   screens the crop centres on the hands. */
+@media (max-width: 900px) {
+  img[src$="hero-praying-hands-light.jpg"] { object-position: 52% 50% !important; }
+}
+
+/* No rule under the header bar (solid or transparent). */
+header.blmlss-flat-header { border-bottom: 0 !important; }
