@@ -257,7 +257,7 @@
         <div style="display: flex; flex-direction: column; gap: 20px; max-width: none;">
           <p style="margin: 0; font-size: 16px; line-height: 1.65; color: #1E1B16;">A short word from our President, Nick, before you begin outlining a high-level overview of our prayer process. If questions come up while you watch, email us and we will jump on a quick call before you dive in to the rest of the prayer process.&nbsp;</p>
           <div style="font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #1E1B16;">Part one · Watch the video</div>
-          <div style="width: 100%; aspect-ratio: 16/9; background: #1E1B16; position: relative; overflow: hidden;">
+          <div style="width: 100%; max-width: 640px; aspect-ratio: 16/9; background: #1E1B16; position: relative; overflow: hidden;">
             <sc-if value="{{ videoIdle }}" hint-placeholder-val="{{ true }}">
               <button type="button" onClick="{{ playVideo }}" aria-label="Play the intro video" style="position: absolute; inset: 0; width: 100%; height: 100%; padding: 0; border: 0; cursor: pointer; background: #1E1B16; display: block;">
                 <image-slot id="video-poster" style="position: absolute; inset: 0;" shape="rect" placeholder="Video thumbnail" src="https://i.ytimg.com/vi/NeaLyeg70JU/hqdefault.jpg"></image-slot>
