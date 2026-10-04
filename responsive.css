@@ -105,9 +105,11 @@ img, svg, video { max-width: 100%; }
   [style*="padding: 104px"] { padding-top: 60px !important; padding-bottom: 60px !important; }
   [style*="padding: 96px"]  { padding-top: 56px !important; padding-bottom: 56px !important; }
 
-  /* Full-height heroes are too tall on a phone */
+  /* Hero fills the actual screen on a phone, as on blameless.church.
+     100vh is the fallback; 100dvh tracks Safari's collapsing toolbar. */
   [style*="min-height: 700px"] {
-    height: 66vh !important;
+    height: 100vh !important;
+    height: 100dvh !important;
     min-height: 380px !important;
     max-height: none !important;
   }
@@ -328,3 +330,72 @@ header.blmlss-flat-header a:hover { text-decoration: none !important; }
 
 /* No rule under the header bar (solid or transparent). */
 header.blmlss-flat-header { border-bottom: 0 !important; }
+
+/* ---------- Hero "Explore more" cue: copied from the church website ---------- */
+@keyframes blmlss-scroll-cue {
+  0%, 100% { opacity: .45; transform: scaleY(.78); }
+  50% { opacity: 1; transform: scaleY(1); }
+}
+section.blmlss-page-hero { isolation: isolate; padding-bottom: 100px; }
+section.blmlss-page-hero::before {
+  content: "";
+  position: absolute;
+  z-index: 5;
+  left: 50%;
+  bottom: 28px;
+  width: 1px;
+  height: 54px;
+  pointer-events: none;
+  background: linear-gradient(to bottom, rgba(247,243,237,.9), rgba(247,243,237,0));
+  transform-origin: top center;
+  animation: blmlss-scroll-cue 2.4s ease-in-out infinite;
+}
+section.blmlss-page-hero .blmlss-hero-down-cue {
+  position: absolute;
+  z-index: 6;
+  left: 32px;
+  right: auto;
+  bottom: 28px;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 44px;
+  padding: 0 0 7px;
+  color: #F7F3ED;
+  font-family: 'General Sans', var(--font-body), sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .2em;
+  line-height: 1;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(247,243,237,.62);
+  text-shadow: 0 1px 14px rgba(0,0,0,.25);
+  pointer-events: auto;
+}
+section.blmlss-page-hero .blmlss-hero-down-cue:hover { color: #F7F3ED; }
+section.blmlss-page-hero .blmlss-hero-down-cue span:last-child {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1;
+  transition: transform 240ms ease;
+}
+section.blmlss-page-hero .blmlss-hero-down-cue:hover span:last-child,
+section.blmlss-page-hero .blmlss-hero-down-cue:focus-visible span:last-child { transform: translateY(4px); }
+@media (max-width: 700px) {
+  section.blmlss-page-hero { padding-bottom: 84px; }
+  /* Headline inset matches the church hero on phones (40px from the edge). */
+  section.blmlss-page-hero > div > div { padding-left: 40px !important; padding-right: 40px !important; }
+  section.blmlss-page-hero .blmlss-hero-down-cue {
+    left: 20px;
+    bottom: 18px;
+    font-size: 9px;
+    letter-spacing: .16em;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  section.blmlss-page-hero::before { animation: none; }
+  section.blmlss-page-hero .blmlss-hero-down-cue span:last-child { transition: none; }
+}

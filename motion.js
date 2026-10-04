@@ -197,3 +197,37 @@
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
 })();
+
+/* Hero "Explore more" cue, as on blameless.church: a small link at the
+   bottom-left of the photo hero (aligned with the headline) that scrolls
+   to the next section, plus a pulsing line drawn by responsive.css. */
+(function () {
+  function init() {
+    var hero = document.querySelector('section[data-cue-label]');
+    if (!hero) { setTimeout(init, 200); return; }
+    if (hero.querySelector('.blmlss-hero-down-cue')) return;
+    hero.classList.add('blmlss-page-hero');
+    var next = hero.nextElementSibling || (hero.parentElement && hero.parentElement.nextElementSibling);
+    while (next && next.tagName === 'SC-IF' && !next.firstElementChild) next = next.nextElementSibling;
+    var target = next && (next.tagName === 'SC-IF' ? next.firstElementChild : next);
+    if (!target) return;
+    if (!target.id) target.id = 'content-start';
+    var label = hero.getAttribute('data-cue-label') || 'Explore more';
+    var cue = document.createElement('a');
+    cue.className = 'blmlss-hero-down-cue';
+    cue.href = '#' + target.id;
+    cue.setAttribute('aria-label', 'Scroll to ' + label.toLowerCase());
+    cue.innerHTML = '<span aria-hidden="true">' + label + '</span><span aria-hidden="true">↓</span>';
+    hero.appendChild(cue);
+    var title = hero.querySelector('h1, h2');
+    function align() {
+      if (!title) return;
+      var l = title.getBoundingClientRect().left - hero.getBoundingClientRect().left;
+      cue.style.left = Math.max(20, l) + 'px';
+    }
+    align();
+    window.addEventListener('resize', align, { passive: true });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();
