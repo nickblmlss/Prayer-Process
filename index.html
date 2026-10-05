@@ -304,6 +304,17 @@
             </div>
           </div>
         </div>
+        <sc-if value="{{ s1Show }}">
+          <div class="step-mark" style="margin-top: 28px; padding-top: 20px; border-top: 1px solid rgba(30,27,22,.12); display: flex; align-items: center; gap: 16px; flex-wrap: wrap;">
+            <sc-if value="{{ s1Todo }}">
+              <x-import component-from-global-scope="BlamelessMinistriesDesignSystem_0fb65e.Button" variant="outline" size="sm" onClick="{{ s1Mark }}" hint-size="auto,40px" dc-props="{{ btnOutline }}">Mark step 1 complete</x-import>
+            </sc-if>
+            <sc-if value="{{ s1Done }}">
+              <span style="display: inline-flex; align-items: center; gap: 8px; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; background: #D0EAE6; color: #1E1B16; padding: 8px 14px; border-radius: 999px;">&#10003; Step 1 complete</span>
+              <button type="button" onClick="{{ s1Undo }}" style="appearance: none; border: 0; background: none; padding: 0; cursor: pointer; font-family: inherit; font-size: 13px; color: #1E1B16; text-decoration: underline; text-underline-offset: 3px;">Undo</button>
+            </sc-if>
+          </div>
+        </sc-if>
       </div>
     </div>
 
@@ -427,6 +438,17 @@
             
           </div>
         </sc-if>
+        <sc-if value="{{ s2Show }}">
+          <div class="step-mark" style="margin-top: 28px; padding-top: 20px; border-top: 1px solid rgba(30,27,22,.12); display: flex; align-items: center; gap: 16px; flex-wrap: wrap;">
+            <sc-if value="{{ s2Todo }}">
+              <x-import component-from-global-scope="BlamelessMinistriesDesignSystem_0fb65e.Button" variant="outline" size="sm" onClick="{{ s2Mark }}" hint-size="auto,40px" dc-props="{{ btnOutline }}">Mark step 2 complete</x-import>
+            </sc-if>
+            <sc-if value="{{ s2Done }}">
+              <span style="display: inline-flex; align-items: center; gap: 8px; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; background: #D0EAE6; color: #1E1B16; padding: 8px 14px; border-radius: 999px;">&#10003; Step 2 complete</span>
+              <button type="button" onClick="{{ s2Undo }}" style="appearance: none; border: 0; background: none; padding: 0; cursor: pointer; font-family: inherit; font-size: 13px; color: #1E1B16; text-decoration: underline; text-underline-offset: 3px;">Undo</button>
+            </sc-if>
+          </div>
+        </sc-if>
       </div>
     </div>
 
@@ -447,12 +469,20 @@
         <sc-if value="{{ s3Open }}">
           <div style="display: flex; flex-direction: column; gap: 20px; align-items: flex-start; max-width: none;">
             <p style="margin: 0; font-size: 16px; line-height: 1.65; color: #1E1B16;">A 90-minute session where your Prayer Lead (me) will guide you through confessing, repenting and renouncing any and all possible open doors to the kingdom of darkness based on your completed Intake Form.</p>
-            <sc-if value="{{ renouncingTodo }}">
-              <x-import component-from-global-scope="BlamelessMinistriesDesignSystem_0fb65e.Button" variant="outline" size="sm" onClick="{{ markRenouncing }}" hint-size="auto,40px" dc-props="{{ btnOutline }}">Mark session complete</x-import>
-            </sc-if>
           </div>
         </sc-if>
         <p style="margin: 16px 0 0; max-width: 64ch; font-size: 13px; font-style: italic; line-height: 1.65; color: #1E1B16;">* Nothing automatic will happen here. This is just to let you know this is what's next in the process, and we'll be scheduling this as we have availability.</p>
+        <sc-if value="{{ s3Show }}">
+          <div class="step-mark" style="margin-top: 28px; padding-top: 20px; border-top: 1px solid rgba(30,27,22,.12); display: flex; align-items: center; gap: 16px; flex-wrap: wrap;">
+            <sc-if value="{{ s3Todo }}">
+              <x-import component-from-global-scope="BlamelessMinistriesDesignSystem_0fb65e.Button" variant="outline" size="sm" onClick="{{ s3Mark }}" hint-size="auto,40px" dc-props="{{ btnOutline }}">Mark step 3 complete</x-import>
+            </sc-if>
+            <sc-if value="{{ s3Done }}">
+              <span style="display: inline-flex; align-items: center; gap: 8px; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; background: #D0EAE6; color: #1E1B16; padding: 8px 14px; border-radius: 999px;">&#10003; Step 3 complete</span>
+              <button type="button" onClick="{{ s3Undo }}" style="appearance: none; border: 0; background: none; padding: 0; cursor: pointer; font-family: inherit; font-size: 13px; color: #1E1B16; text-decoration: underline; text-underline-offset: 3px;">Undo</button>
+            </sc-if>
+          </div>
+        </sc-if>
       </div>
     </div>
 
@@ -473,12 +503,20 @@
         <sc-if value="{{ s4Open }}">
           <div style="display: flex; flex-direction: column; gap: 20px; align-items: flex-start; max-width: none;">
             <p style="margin: 0; font-size: 16px; line-height: 1.65; color: #1E1B16;">A 4-hour session where me and a team of 2-3 additional Prayer Team Members will lead you through deliverance, cleaning your temple of everything unclean, and coming into alignment with the Kingdom of God and all that He has for you</p>
-            <sc-if value="{{ releasingTodo }}">
-              <x-import component-from-global-scope="BlamelessMinistriesDesignSystem_0fb65e.Button" variant="outline" size="sm" onClick="{{ markReleasing }}" hint-size="auto,40px" dc-props="{{ btnOutline }}">Mark session complete</x-import>
-            </sc-if>
           </div>
         </sc-if>
         <p style="margin: 16px 0 0; max-width: 64ch; font-size: 13px; font-style: italic; line-height: 1.65; color: #1E1B16;">* Nothing automatic will happen here. This is just to let you know this is what's next in the process, and we'll be scheduling this as we have availability.</p>
+        <sc-if value="{{ s4Show }}">
+          <div class="step-mark" style="margin-top: 28px; padding-top: 20px; border-top: 1px solid rgba(30,27,22,.12); display: flex; align-items: center; gap: 16px; flex-wrap: wrap;">
+            <sc-if value="{{ s4Todo }}">
+              <x-import component-from-global-scope="BlamelessMinistriesDesignSystem_0fb65e.Button" variant="outline" size="sm" onClick="{{ s4Mark }}" hint-size="auto,40px" dc-props="{{ btnOutline }}">Mark step 4 complete</x-import>
+            </sc-if>
+            <sc-if value="{{ s4Done }}">
+              <span style="display: inline-flex; align-items: center; gap: 8px; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; background: #D0EAE6; color: #1E1B16; padding: 8px 14px; border-radius: 999px;">&#10003; Step 4 complete</span>
+              <button type="button" onClick="{{ s4Undo }}" style="appearance: none; border: 0; background: none; padding: 0; cursor: pointer; font-family: inherit; font-size: 13px; color: #1E1B16; text-decoration: underline; text-underline-offset: 3px;">Undo</button>
+            </sc-if>
+          </div>
+        </sc-if>
       </div>
     </div>
 
@@ -500,6 +538,17 @@
             <p style="margin: 0; font-size: 16px; line-height: 1.65; color: #1E1B16;">Deliverance sets you free, but discipleship — following God and His ways — is how you continue to walk in freedom for the rest of your life. The Living Free workbook is how we walk that out with you after your prayer sessions.</p>
             <p style="margin: 0; font-size: 16px; line-height: 1.65; color: #1E1B16;">Password is: <strong style="color: var(--ink);">wordofgod</strong></p>
             <x-import component-from-global-scope="BlamelessMinistriesDesignSystem_0fb65e.Button" as="a" href="{{ livingFreeUrl }}" size="sm" hint-size="auto,40px" dc-props="{{ btnSolid }}">Open the Living Free workbook</x-import>
+          </div>
+        </sc-if>
+        <sc-if value="{{ s5Show }}">
+          <div class="step-mark" style="margin-top: 28px; padding-top: 20px; border-top: 1px solid rgba(30,27,22,.12); display: flex; align-items: center; gap: 16px; flex-wrap: wrap;">
+            <sc-if value="{{ s5Todo }}">
+              <x-import component-from-global-scope="BlamelessMinistriesDesignSystem_0fb65e.Button" variant="outline" size="sm" onClick="{{ s5Mark }}" hint-size="auto,40px" dc-props="{{ btnOutline }}">Mark step 5 complete</x-import>
+            </sc-if>
+            <sc-if value="{{ s5Done }}">
+              <span style="display: inline-flex; align-items: center; gap: 8px; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; background: #D0EAE6; color: #1E1B16; padding: 8px 14px; border-radius: 999px;">&#10003; Step 5 complete</span>
+              <button type="button" onClick="{{ s5Undo }}" style="appearance: none; border: 0; background: none; padding: 0; cursor: pointer; font-family: inherit; font-size: 13px; color: #1E1B16; text-decoration: underline; text-underline-offset: 3px;">Undo</button>
+            </sc-if>
           </div>
         </sc-if>
       </div>
@@ -1127,7 +1176,7 @@ const LEADS = [
   {name:'Olivia Crum', email:'ocrum94@gmail.com'}
 ];
 
-const BLANK = {intro:false, intake:false, lead:'nick@blmlss.com', chapters:[], quiz:false, renouncing:false, releasing:false, name:'', email:'', answers:{}, reflections:{}};
+const BLANK = {intro:false, prework:null, living:false, intake:false, lead:'nick@blmlss.com', chapters:[], quiz:false, renouncing:false, releasing:false, name:'', email:'', answers:{}, reflections:{}};
 
 class Component extends DCLogic {
   state = {view:'home', qStep:0, p:Object.assign({}, BLANK), wrong:[], feedback:'', showFeedback:false, copied:false, unlocked:false, gateInput:'', gateError:false};
@@ -1149,6 +1198,16 @@ class Component extends DCLogic {
   }
 
   componentWillUnmount(){ window.removeEventListener('scroll', this._onScroll); }
+
+  // After a step is marked complete, bring the next step into view.
+  goToStep(n){
+    setTimeout(() => {
+      const row = document.querySelectorAll('.step-row')[n-1];
+      if (!row) return;
+      const top = row.getBoundingClientRect().top + window.scrollY - 110;
+      window.scrollTo({top, behavior: 'smooth'});
+    }, 120);
+  }
 
   save(patch){
     const p = Object.assign({}, this.state.p, patch);
@@ -1287,10 +1346,14 @@ class Component extends DCLogic {
     const allRead = readCount >= CH.length;
     const pv = this.preview();
     const s1 = pv || p.intro;
-    const s2 = pv || (p.intake && allRead && p.quiz);
+    // Step 2 completes on its own once all three assignments are done, or can be
+    // marked by hand; prework === false means it was explicitly undone.
+    const s2auto = p.intake && allRead && p.quiz;
+    const s2 = pv || (s1 && (p.prework === false ? false : (p.prework || s2auto)));
     const s3 = pv || (s2 && p.renouncing);
     const s4 = pv || (s3 && p.releasing);
-    const done = [s1, s2, s3, s4].filter(Boolean).length;
+    const s5 = pv || (s4 && p.living);
+    const done = [s1, s2, s3, s4, s5].filter(Boolean).length;
 
     const chapters = CH.map((c,i) => {
       const read = p.chapters.indexOf(i) >= 0;
@@ -1419,8 +1482,14 @@ class Component extends DCLogic {
       resetNote: !!this.state.resetNote,
       resetAll: () => { try{ if (!window.confirm('Reset all your progress on this device? This clears your steps, workbook answers and quiz answers, and cannot be undone.')) return; }catch(e){} try{localStorage.removeItem(KEY); localStorage.removeItem('blmlss-living-free-v1');}catch(e){} this.setState({resetNote:true, sendStatus:null, qStep:0, p:Object.assign({},BLANK,{chapters:[],answers:{},reflections:{}}), view:'home', wrong:[], showFeedback:false}); },
 
-      progressLabel: done >= 4 ? 'Step 5 of 5 \u00b7 Living Free' : ('Step ' + (done + 1) + ' of 5'),
-      progressPct: (Math.min(done, 4) / 4 * 100) + '%',
+      progressLabel: done >= 5 ? 'All 5 steps complete' : ('Step ' + (done + 1) + ' of 5'),
+      progressPct: (done / 5 * 100) + '%',
+
+      s1Show: true, s1Todo: !s1, s1Mark: () => { this.save({intro:true}); this.goToStep(2); }, s1Undo: () => this.save({intro:false}),
+      s2Show: s1, s2Todo: !s2, s2Mark: () => { this.save({prework:true}); this.goToStep(3); }, s2Undo: () => this.save({prework:false}),
+      s3Show: s2, s3Todo: !s3, s3Mark: () => { this.save({renouncing:true}); this.goToStep(4); }, s3Undo: () => this.save({renouncing:false}),
+      s4Show: s3, s4Todo: !s4, s4Mark: () => { this.save({releasing:true}); this.goToStep(5); }, s4Undo: () => this.save({releasing:false}),
+      s5Show: s4, s5Todo: !s5, s5Done: s5, s5Mark: () => this.save({living:true}), s5Undo: () => this.save({living:false}),
 
       videoIdle: !this.state.videoPlaying,
       videoPlaying: !!this.state.videoPlaying,
