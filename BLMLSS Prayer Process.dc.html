@@ -38,6 +38,7 @@
 <link rel="stylesheet" href="_ds/blmlss/tokens/fonts.css">
 <script src="./motion.js"></script>
 <script src="./image-slot.js"></script>
+<script src="./cal-intro.js"></script>
 <style>
   @font-face { font-family: 'Restora'; src: url('assets/fonts/Restora.otf') format('opentype'); font-weight: 400; font-display: swap; }
   @font-face { font-family: 'Restora'; src: url('assets/fonts/RestoraBold.otf') format('opentype'); font-weight: 700; font-display: swap; }
@@ -57,6 +58,9 @@
   [data-layout="band"][data-asg="rows"] .asg-text { max-width: 72ch !important; }
   [data-layout="band"][data-asg="rows"] .asg-act { max-width: 640px !important; }
   [data-layout="band"][data-asg="rows"] .intro-video { width: auto !important; max-width: none !important; margin-left: calc((100% - 48px) / 3 + 48px); }
+  [data-layout="band"][data-asg="rows"] .intro-col { margin-left: calc((100% - 48px) / 3 + 48px); }
+  @media (max-width: 900px) { [data-layout="band"][data-asg="rows"] .intro-col { margin-left: 0; } }
+  .asg > .cal-intro, .asg > .cal-intro-alt { grid-column: 1 / -1 !important; margin-top: 8px; }
   @media (max-width: 900px) { [data-layout="band"][data-asg="rows"] .intro-video { width: 100% !important; margin-left: 0; } }
   @container (max-width: 560px) { [data-layout="band"][data-asg="rows"] .intro-video { width: 100% !important; margin-left: 0; } }
   .step-row:last-child { border-bottom: none; }
@@ -273,11 +277,11 @@
           <span style="font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: #1E1B16;">Step 01</span>
           <sc-if value="{{ s1Done }}"><span style="font-size: 11px; letter-spacing: .18em; text-transform: uppercase; background: #D0EAE6; padding: 5px 12px; border-radius: 999px;">Complete</span></sc-if>
         </div>
-        <h2 style="margin: 0; font-family: 'Restora', var(--font-display), Georgia, serif; font-weight: 400; font-size: 34px; line-height: 1.16; letter-spacing: -0.01em; color: var(--ink); text-transform: none">Watch the intro video &amp; book a call with our team</h2>
+        <h2 style="margin: 0; font-family: 'Restora', var(--font-display), Georgia, serif; font-weight: 400; font-size: 34px; line-height: 1.16; letter-spacing: -0.01em; color: var(--ink); text-transform: none">Watch the intro video &amp; book a call with Nick</h2>
       </div>
       <div>
         <div style="display: flex; flex-direction: column; gap: 20px; max-width: none;">
-          <p style="margin: 0; font-size: 16px; line-height: 1.65; color: #1E1B16;">A short word from our President, Nick, before you begin outlining a high-level overview of our prayer process. If questions come up while you watch, email us and we will jump on a quick call before you dive in to the rest of the prayer process.&nbsp;</p>
+          <p style="margin: 0; font-size: 16px; line-height: 1.65; color: #1E1B16;">A short word from our President, Nick, giving a high-level overview of our prayer process. Once you’ve watched it, mark it as watched and book a 20-minute intro call with Nick right below.</p>
           <div style="font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #1E1B16;">Part one · Watch the video</div>
           <div class="intro-video" style="width: 100%; max-width: 640px; aspect-ratio: 16/9; background: #1E1B16; position: relative; overflow: hidden;">
             <sc-if value="{{ videoIdle }}" hint-placeholder-val="{{ true }}">
@@ -292,16 +296,29 @@
               <iframe src="https://www.youtube.com/embed/NeaLyeg70JU?si=_88uydEpyVebWmew&amp;autoplay=1&amp;rel=0&amp;modestbranding=1" title="YouTube video player" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" style="width: 100%; height: 100%; border: 0; display: block;"></iframe>
             </sc-if>
           </div>
-          
+          <div class="intro-col" style="display: flex; align-items: center; gap: 16px; flex-wrap: wrap;">
+            <sc-if value="{{ videoTodo }}">
+              <x-import component-from-global-scope="BlamelessMinistriesDesignSystem_0fb65e.Button" variant="outline" size="sm" onClick="{{ markVideo }}" hint-size="auto,40px" dc-props="{{ btnOutline }}">I've watched the video</x-import>
+            </sc-if>
+            <sc-if value="{{ videoDone }}">
+              <span style="display: inline-flex; align-items: center; gap: 8px; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; background: #D0EAE6; color: #1E1B16; padding: 8px 14px; border-radius: 999px;">&#10003; Video watched</span>
+              <button type="button" onClick="{{ undoVideo }}" style="appearance: none; border: 0; background: none; padding: 0; cursor: pointer; font-family: inherit; font-size: 13px; color: #1E1B16; text-decoration: underline; text-underline-offset: 3px;">Undo</button>
+            </sc-if>
+          </div>
+
           <div class="asg" style="margin-top: 12px; border: 1px solid rgba(30,27,22,.15); padding: clamp(18px,3vw,28px); background: var(--cream);">
-            <div class="asg-ey" style="font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #1E1B16; margin-bottom: 12px;">Part two · Book your intro call</div>
-            <p class="asg-text" style="margin: 0 0 20px; max-width: 52ch; font-size: 16px; line-height: 1.65; color: #1E1B16;"><strong>Reach out to the prayer team</strong> and let us know you're ready to begin the process and book your intro call. We'll connect you with your prayer lead to begin the process and give you the code to the pre-work section.&nbsp;</p>
-            <div class="asg-act" style="display: flex; gap: 16px; flex-wrap: wrap; align-items: center;">
-                <sc-if value="{{ nsA1 }}"><span style="flex: 1 1 100%; font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #1E1B16;">Next step ↓</span></sc-if>
-                <sc-if value="{{ nsB1 }}"><span style="display: inline-flex; align-items: center; height: 28px; padding: 0 14px; border-radius: 999px; background: #FFB88F; font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #1E1B16;">Next step</span></sc-if>
-                <sc-if value="{{ nsC1 }}"><span style="flex: 1 1 100%; display: flex; align-items: center; gap: 14px; font-family: 'Restora', var(--font-display), Georgia, serif; font-style: italic; font-size: 20px; line-height: 1.2; color: #1E1B16;">Your next step<span style="flex: 1 1 auto; height: 1px; background: rgba(30,27,22,.15);"></span></span></sc-if>
-              <x-import component-from-global-scope="BlamelessMinistriesDesignSystem_0fb65e.Button" as="a" href="mailto:prayer@blmlss.com?subject=Ready%20to%20begin%20%E2%80%94%20booking%20my%20intro%20call" hint-size="auto,48px" dc-props="{{ btnSolid }}">Email the prayer team to schedule your intro call</x-import>
-            </div>
+            <div class="asg-ey" style="font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #1E1B16; margin-bottom: 12px;">Part two · Book your intro call with Nick</div>
+            <p class="asg-text" style="margin: 0 0 20px; max-width: 60ch; font-size: 16px; line-height: 1.65; color: #1E1B16;"><strong>Book a 20-minute intro call with Nick</strong> to answer any questions you have about the prayer process, get to know you a little, and learn more about why you're wanting prayer.</p>
+            <sc-if value="{{ callLocked }}">
+              <p class="asg-text" style="margin: 0; font-size: 14px; line-height: 1.6; color: #1E1B16;">Opens once you've marked the intro video as watched.</p>
+            </sc-if>
+            <sc-if value="{{ callBooked }}">
+              <p class="asg-text" role="status" style="margin: 0 0 16px; display: inline-flex; align-items: center; gap: 8px; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; background: #D0EAE6; color: #1E1B16; padding: 8px 14px; border-radius: 999px; width: fit-content;">&#10003; Intro call booked</p>
+            </sc-if>
+            <sc-if value="{{ callOpen }}">
+              <div class="cal-intro" id="my-cal-inline-prayerintro" style="grid-column: 1 / -1; width: 100%; min-height: 560px; overflow: auto;"></div>
+              <p class="asg-text cal-intro-alt" style="margin: 12px 0 0; font-size: 14px; line-height: 1.6; color: #1E1B16;">Calendar not showing? <a href="https://cal.com/nick-gravino-blmlss/prayerintro" target="_blank" rel="noopener" style="color: #1E1B16; text-decoration: underline; text-underline-offset: 3px;">Open the booking page</a>.</p>
+            </sc-if>
           </div>
         </div>
         <sc-if value="{{ s1Show }}">
@@ -1176,7 +1193,7 @@ const LEADS = [
   {name:'Olivia Crum', email:'ocrum94@gmail.com'}
 ];
 
-const BLANK = {intro:false, prework:null, living:false, intake:false, lead:'nick@blmlss.com', chapters:[], quiz:false, renouncing:false, releasing:false, name:'', email:'', answers:{}, reflections:{}};
+const BLANK = {intro:false, video:false, call:false, prework:null, living:false, intake:false, lead:'nick@blmlss.com', chapters:[], quiz:false, renouncing:false, releasing:false, name:'', email:'', answers:{}, reflections:{}};
 
 class Component extends DCLogic {
   state = {view:'home', qStep:0, p:Object.assign({}, BLANK), wrong:[], feedback:'', showFeedback:false, copied:false, unlocked:false, gateInput:'', gateError:false};
@@ -1189,6 +1206,8 @@ class Component extends DCLogic {
       if (cur !== this.state.wbCur) this.setState({wbCur: cur});
     };
     window.addEventListener('scroll', this._onScroll, {passive:true});
+    this._onBooked = () => this.save({video:true, call:true});
+    window.addEventListener('blmlss:intro-booked', this._onBooked);
     try {
       const raw = localStorage.getItem(KEY);
       if (raw) this.setState({p: Object.assign({}, BLANK, JSON.parse(raw))});
@@ -1197,7 +1216,7 @@ class Component extends DCLogic {
     try { if (localStorage.getItem('blmlss-gate-v1') === 'ok') this.setState({unlocked:true}); } catch(e){}
   }
 
-  componentWillUnmount(){ window.removeEventListener('scroll', this._onScroll); }
+  componentWillUnmount(){ window.removeEventListener('scroll', this._onScroll); window.removeEventListener('blmlss:intro-booked', this._onBooked); }
 
   // After a step is marked complete, bring the next step into view.
   goToStep(n){
@@ -1485,6 +1504,10 @@ class Component extends DCLogic {
       progressLabel: done >= 5 ? 'All 5 steps complete' : ('Step ' + (done + 1) + ' of 5'),
       progressPct: (done / 5 * 100) + '%',
 
+      videoTodo: !p.video, videoDone: !!p.video,
+      markVideo: () => this.save({video:true}),
+      undoVideo: () => this.save({video:false}),
+      callLocked: !p.video && !pv, callOpen: !!p.video || pv, callBooked: !!p.call,
       s1Show: true, s1Todo: !s1, s1Mark: () => { this.save({intro:true}); this.goToStep(2); }, s1Undo: () => this.save({intro:false}),
       s2Show: s1, s2Todo: !s2, s2Mark: () => { this.save({prework:true}); this.goToStep(3); }, s2Undo: () => this.save({prework:false}),
       s3Show: s2, s3Todo: !s3, s3Mark: () => { this.save({renouncing:true}); this.goToStep(4); }, s3Undo: () => this.save({renouncing:false}),
