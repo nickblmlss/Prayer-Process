@@ -359,7 +359,7 @@
         <sc-if value="{{ s2NeedsCode }}">
           <div class="gate-card" style="border: 1px solid rgba(30,27,22,.15); padding: clamp(20px,3vw,32px); background: var(--cream); display: flex; flex-direction: column; gap: 16px; align-items: flex-start;">
             <div style="font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #1E1B16;">Unlock your pre-work</div>
-            <p style="margin: 0; max-width: 56ch; font-size: 16px; line-height: 1.65; color: #1E1B16;">Nick gives you an access word on your intro call. Enter it here to unlock Step 2 and the rest of the prayer process.</p>
+            <p style="margin: 0; max-width: 56ch; font-size: 16px; line-height: 1.65; color: #1E1B16;">You'll get the passcode after your initial call. Enter it here to unlock Step 2 and the rest of the prayer process.</p>
             <x-import component-from-global-scope="BlamelessMinistriesDesignSystem_0fb65e.Button" size="sm" onClick="{{ openGate }}" hint-size="auto,40px" dc-props="{{ btnSolid }}">Enter your access word</x-import>
           </div>
         </sc-if>
@@ -369,10 +369,10 @@
               <button type="button" onClick="{{ closeGate }}" aria-label="Close" style="position: absolute; top: 12px; right: 12px; width: 40px; height: 40px; border: 0; background: none; cursor: pointer; font-size: 26px; line-height: 1; color: #1E1B16;">&times;</button>
               <div style="font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #1E1B16; margin-bottom: 20px;">Step 2 · Participants only</div>
               <h2 id="gate-title" style="margin: 0 0 16px; font-family: 'Restora', var(--font-display), Georgia, serif; font-weight: 400; font-size: 30px; line-height: 1.2; color: #1E1B16;">Enter your access word</h2>
-              <p style="margin: 0 0 28px; font-size: 16px; line-height: 1.6; color: #1E1B16;">Nick gives you this word on your intro call.</p>
+              <p style="margin: 0 0 28px; font-size: 16px; line-height: 1.6; color: #1E1B16;">You'll get the passcode after your initial call.</p>
               <input type="password" value="{{ gateInput }}" onChange="{{ setGate }}" onKeyDown="{{ gateKey }}" placeholder="Access word" autoComplete="off" autoFocus="{{ true }}" style="width: 100%; box-sizing: border-box; font: inherit; font-size: 16px; padding: 12px 14px; border: 1px solid rgba(30,27,22,.35); background: #FFFFFF; color: #1E1B16; margin-bottom: 16px;">
               <sc-if value="{{ gateError }}">
-                <p style="margin: 0 0 16px; font-size: 14px; line-height: 1.5; color: #9B4B4B;">That word is not right. Please check with Nick.</p>
+                <p style="margin: 0 0 16px; font-size: 14px; line-height: 1.5; color: #9B4B4B;">That word is not right. Please reach out to <a href="mailto:prayer@blmlss.com" style="color: #9B4B4B; text-decoration: underline; text-underline-offset: 2px;">prayer@blmlss.com</a> if you need assistance.</p>
               </sc-if>
               <button type="button" onClick="{{ submitGate }}" style="appearance: none; cursor: pointer; font: inherit; font-size: 12px; letter-spacing: .18em; text-transform: uppercase; padding: 16px 32px; font-weight: 700; border: 1px solid #1E1B16; border-radius: 24px; background: #1E1B16; color: #F7F3ED;">Unlock Step 2</button>
             </div>
