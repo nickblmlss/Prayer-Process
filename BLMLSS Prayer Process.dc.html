@@ -353,8 +353,30 @@
         <h2 style="margin: 0; font-family: 'Restora', var(--font-display), Georgia, serif; font-weight: 400; font-size: 34px; line-height: 1.16; letter-spacing: -0.01em; color: var(--ink);">Pre-work Completion</h2>
       </div>
       <div>
-        <sc-if value="{{ s2Locked }}">
-          <p style="margin: 0; max-width: 48ch; font-size: 16px; line-height: 1.65; color: #1E1B16;">Opens once you have watched the intro video.</p>
+        <sc-if value="{{ s2NeedsStep1 }}">
+          <p style="margin: 0; max-width: 52ch; font-size: 16px; line-height: 1.65; color: #1E1B16;">Opens once Step 1 is complete and you've had your intro call with Nick.</p>
+        </sc-if>
+        <sc-if value="{{ s2NeedsCode }}">
+          <div class="gate-card" style="border: 1px solid rgba(30,27,22,.15); padding: clamp(20px,3vw,32px); background: var(--cream); display: flex; flex-direction: column; gap: 16px; align-items: flex-start;">
+            <div style="font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #1E1B16;">Unlock your pre-work</div>
+            <p style="margin: 0; max-width: 56ch; font-size: 16px; line-height: 1.65; color: #1E1B16;">Nick gives you an access word on your intro call. Enter it here to unlock Step 2 and the rest of the prayer process.</p>
+            <x-import component-from-global-scope="BlamelessMinistriesDesignSystem_0fb65e.Button" size="sm" onClick="{{ openGate }}" hint-size="auto,40px" dc-props="{{ btnSolid }}">Enter your access word</x-import>
+          </div>
+        </sc-if>
+        <sc-if value="{{ gateOpen }}">
+          <div role="dialog" aria-modal="true" aria-labelledby="gate-title" style="position: fixed; inset: 0; z-index: 1000; display: flex; align-items: center; justify-content: center; padding: 20px; background: rgba(30,27,22,.55);">
+            <div style="position: relative; width: min(460px,100%); background: #FFFFFF; border: 1px solid rgba(30,27,22,.15); padding: 40px; box-sizing: border-box;">
+              <button type="button" onClick="{{ closeGate }}" aria-label="Close" style="position: absolute; top: 12px; right: 12px; width: 40px; height: 40px; border: 0; background: none; cursor: pointer; font-size: 26px; line-height: 1; color: #1E1B16;">&times;</button>
+              <div style="font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #1E1B16; margin-bottom: 20px;">Step 2 · Participants only</div>
+              <h2 id="gate-title" style="margin: 0 0 16px; font-family: 'Restora', var(--font-display), Georgia, serif; font-weight: 400; font-size: 30px; line-height: 1.2; color: #1E1B16;">Enter your access word</h2>
+              <p style="margin: 0 0 28px; font-size: 16px; line-height: 1.6; color: #1E1B16;">Nick gives you this word on your intro call.</p>
+              <input type="password" value="{{ gateInput }}" onChange="{{ setGate }}" onKeyDown="{{ gateKey }}" placeholder="Access word" autoComplete="off" autoFocus="{{ true }}" style="width: 100%; box-sizing: border-box; font: inherit; font-size: 16px; padding: 12px 14px; border: 1px solid rgba(30,27,22,.35); background: #FFFFFF; color: #1E1B16; margin-bottom: 16px;">
+              <sc-if value="{{ gateError }}">
+                <p style="margin: 0 0 16px; font-size: 14px; line-height: 1.5; color: #9B4B4B;">That word is not right. Please check with Nick.</p>
+              </sc-if>
+              <button type="button" onClick="{{ submitGate }}" style="appearance: none; cursor: pointer; font: inherit; font-size: 12px; letter-spacing: .18em; text-transform: uppercase; padding: 16px 32px; font-weight: 700; border: 1px solid #1E1B16; border-radius: 24px; background: #1E1B16; color: #F7F3ED;">Unlock Step 2</button>
+            </div>
+          </div>
         </sc-if>
         <sc-if value="{{ s2Open }}">
           <div style="display: flex; flex-direction: column; gap: 20px; max-width: none;">
@@ -659,16 +681,6 @@
       </section>
 </sc-if>
     </div>
-    <sc-if value="{{ locked }}">
-      <div style="position: absolute; inset: 0; display: flex; justify-content: center; background: rgba(255,255,255,.55);">
-        <div style="position: sticky; top: 96px; align-self: flex-start; margin-top: 72px; width: min(460px,100%); background: #FFFFFF; border: 1px solid rgba(30,27,22,.15); padding: 40px;">
-          <div style="font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #1E1B16; margin-bottom: 20px;">Participants only</div>
-          <h2 style="margin: 0 0 16px; font-family: 'Restora', var(--font-display), Georgia, serif; font-weight: 400; font-size: 30px; line-height: 1.2;">Enter your access word</h2>
-          <p style="margin: 0 0 28px; font-size: 16px; line-height: 1.6; color: #1E1B16;">Your prayer lead gives you this word when your process begins.</p>
-          <input type="password" value="{{ gateInput }}" onChange="{{ setGate }}" onKeyDown="{{ gateKey }}" placeholder="Access word" autoComplete="off" style="width: 100%; box-sizing: border-box; font: inherit; font-size: 16px; padding: 12px 14px; border: 1px solid rgba(30,27,22,.35); background: #FFFFFF; color: #1E1B16; margin-bottom: 16px;">
-          <sc-if value="{{ gateError }}">
-            <p style="margin: 0 0 16px; font-size: 14px; line-height: 1.5; color: #9B4B4B;">That word is not right. Please check with your prayer lead.</p>
-          </sc-if>
           <button type="button" onClick="{{ submitGate }}" style="appearance: none; cursor: pointer; font: inherit; font-size: 12px; letter-spacing: .18em; text-transform: uppercase; padding: 16px 32px; font-weight: 700; border: 1px solid #1E1B16; border-radius: 24px; background: #1E1B16; color: #F7F3ED; white-space: nowrap;" style-hover="background: #332E26; border-color: #332E26;">Unlock my process</button>
         </div>
       </div>
@@ -1212,8 +1224,7 @@ class Component extends DCLogic {
       const raw = localStorage.getItem(KEY);
       if (raw) this.setState({p: Object.assign({}, BLANK, JSON.parse(raw))});
     } catch(e){}
-    try { if (/[?&]view=quiz/.test(window.location.search)) this.setState({view:'quiz'}); } catch(e){}
-    try { if (localStorage.getItem('blmlss-gate-v1') === 'ok') this.setState({unlocked:true}); } catch(e){}
+    try { if (localStorage.getItem('blmlss-gate-v1') === 'ok') { this.setState({unlocked:true}); if (/[?&]view=quiz/.test(window.location.search)) this.setState({view:'quiz'}); } } catch(e){}
   }
 
   componentWillUnmount(){ window.removeEventListener('scroll', this._onScroll); window.removeEventListener('blmlss:intro-booked', this._onBooked); }
@@ -1338,12 +1349,13 @@ class Component extends DCLogic {
   }
 
   preview(){
-    try { return /[?&]preview=1/.test(window.location.search); } catch(e){ return false; }
+    // The ?preview=1 bypass has been removed: every visitor goes through the steps.
+    return false;
   }
 
   tryUnlock(){
     if (this.state.gateInput.trim().toLowerCase() === 'fireofgod') {
-      this.setState({unlocked:true, gateError:false, gateInput:''});
+      this.setState({unlocked:true, gateOpen:false, gateError:false, gateInput:''});
       try { localStorage.setItem('blmlss-gate-v1','ok'); } catch(e){}
     } else {
       this.setState({gateError:true});
@@ -1353,12 +1365,12 @@ class Component extends DCLogic {
   renderVals(){
     const p = this.state.p;
     const gate = {
-      locked: !this.state.unlocked && !this.preview(),
-      gateStyle: (this.state.unlocked || this.preview()) ? '' : 'filter:blur(7px);pointer-events:none;user-select:none',
+      locked: false,
+      gateStyle: '',
       gateInput: this.state.gateInput,
       gateError: this.state.gateError,
       setGate: (e) => this.setState({gateInput: e.target.value, gateError:false}),
-      gateKey: (e) => { if (e.key === 'Enter') this.tryUnlock(); },
+      gateKey: (e) => { if (e.key === 'Enter') this.tryUnlock(); if (e.key === 'Escape') this.setState({gateOpen: false, gateError: false, gateInput: ''}); },
       submitGate: () => this.tryUnlock(),
     };
     const readCount = p.chapters.length;
@@ -1368,7 +1380,8 @@ class Component extends DCLogic {
     // Step 2 completes on its own once all three assignments are done, or can be
     // marked by hand; prework === false means it was explicitly undone.
     const s2auto = p.intake && allRead && p.quiz;
-    const s2 = pv || (s1 && (p.prework === false ? false : (p.prework || s2auto)));
+    const unlocked = !!this.state.unlocked;
+    const s2 = pv || (s1 && unlocked && (p.prework === false ? false : (p.prework || s2auto)));
     const s3 = pv || (s2 && p.renouncing);
     const s4 = pv || (s3 && p.releasing);
     const s5 = pv || (s4 && p.living);
@@ -1499,7 +1512,7 @@ class Component extends DCLogic {
       openWorkbook: () => { this.setState({view:'workbook'}); window.scrollTo(0,0); },
       openQuiz: () => { this.setState({view:'quiz'}); window.scrollTo(0,0); },
       resetNote: !!this.state.resetNote,
-      resetAll: () => { try{ if (!window.confirm('Reset all your progress on this device? This clears your steps, workbook answers and quiz answers, and cannot be undone.')) return; }catch(e){} try{localStorage.removeItem(KEY); localStorage.removeItem('blmlss-living-free-v1');}catch(e){} this.setState({resetNote:true, sendStatus:null, qStep:0, p:Object.assign({},BLANK,{chapters:[],answers:{},reflections:{}}), view:'home', wrong:[], showFeedback:false}); },
+      resetAll: () => { try{ if (!window.confirm('Reset all your progress on this device? This clears your steps, workbook answers and quiz answers, and locks Step 2 again. It cannot be undone.')) return; }catch(e){} try{localStorage.removeItem(KEY); localStorage.removeItem('blmlss-living-free-v1'); localStorage.removeItem('blmlss-gate-v1');}catch(e){} this.setState({unlocked:false, gateOpen:false, gateInput:'', gateError:false, resetNote:true, sendStatus:null, qStep:0, p:Object.assign({},BLANK,{chapters:[],answers:{},reflections:{}}), view:'home', wrong:[], showFeedback:false}); },
 
       progressLabel: done >= 5 ? 'All 5 steps complete' : ('Step ' + (done + 1) + ' of 5'),
       progressPct: (done / 5 * 100) + '%',
@@ -1509,7 +1522,7 @@ class Component extends DCLogic {
       undoVideo: () => this.save({video:false}),
       callLocked: !p.video && !pv, callOpen: !!p.video || pv, callBooked: !!p.call,
       s1Show: true, s1Todo: !s1, s1Mark: () => { this.save({intro:true}); this.goToStep(2); }, s1Undo: () => this.save({intro:false}),
-      s2Show: s1, s2Todo: !s2, s2Mark: () => { this.save({prework:true}); this.goToStep(3); }, s2Undo: () => this.save({prework:false}),
+      s2Show: s1 && unlocked, s2Todo: !s2, s2Mark: () => { this.save({prework:true}); this.goToStep(3); }, s2Undo: () => this.save({prework:false}),
       s3Show: s2, s3Todo: !s3, s3Mark: () => { this.save({renouncing:true}); this.goToStep(4); }, s3Undo: () => this.save({renouncing:false}),
       s4Show: s3, s4Todo: !s4, s4Mark: () => { this.save({releasing:true}); this.goToStep(5); }, s4Undo: () => this.save({releasing:false}),
       s5Show: s4, s5Todo: !s5, s5Done: s5, s5Mark: () => this.save({living:true}), s5Undo: () => this.save({living:false}),
@@ -1520,7 +1533,11 @@ class Component extends DCLogic {
       s1Done: s1, s1Open: !s1,
       markIntro: () => this.save({intro:true}),
 
-      s2Locked: !s1, s2Open: s1, s2Done: s2, s2Opacity: s1 ? 1 : 0.55,
+      s2Locked: !(s1 && unlocked), s2Open: s1 && unlocked, s2Done: s2, s2Opacity: s1 ? 1 : 0.55,
+      s2NeedsStep1: !s1, s2NeedsCode: s1 && !unlocked,
+      gateOpen: !!this.state.gateOpen,
+      openGate: () => this.setState({gateOpen: true, gateError: false, gateInput: ''}),
+      closeGate: () => this.setState({gateOpen: false, gateError: false, gateInput: ''}),
       intakeFormUrl: this.props.intakeFormUrl || 'https://drive.google.com/file/d/135CabL3qbWAw6FdNQ40JB0ReMbY3tDXl/view',
       leads: LEADS,
       leadValue: p.lead || LEADS[0].email,
